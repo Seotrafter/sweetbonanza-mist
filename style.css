@@ -1,0 +1,648 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap");
+
+body,
+html {
+  background-color: #404e41;
+  font-family: "Exo 2", sans-serif;
+  color: beige;
+  font-size: 18px;
+  line-height: 1.8;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+  font-style: normal;
+  color: inherit;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+a:hover {
+  transform: scale(1.05); /* Легке збільшення кнопки */
+  color: var(--color-prime);
+}
+h2 {
+  font-size: 40px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  padding: 0;
+  margin: 0;
+}
+h1 {
+  font-size: 40px;
+  line-height: 1.3;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  width: 70px;
+}
+
+.button-header {
+  padding: 15px 40px;
+  border: solid 1px beige;
+  width: 150px;
+  border-radius: 50px;
+  transition: transform 0.3s ease;
+}
+.button-header:hover {
+  transform: scale(1.05); 
+  color: var(--color-prime);
+}
+.menu nav {
+  display: flex;
+  gap: 20px;
+}
+.button img {
+  width: 20px;
+}
+.container {
+  margin: 0 auto;
+  max-width: 1400px;
+  width: 100%;
+  padding: 20px;
+}
+
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  z-index: 9999;
+  display: none;
+}
+
+#cookie-banner p {
+  margin: 0;
+  font-size: 16px;
+}
+
+#cookie-banner button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#cookie-banner button.decline {
+  background-color: #f44336;
+}
+
+#cookie-banner button:hover {
+  opacity: 0.8;
+}
+
+/* scroll */
+/* Стилізація скролбару на всьому сайті */
+::-webkit-scrollbar {
+  width: 12px; /* Ширина вертикального скролбару */
+  height: 12px; /* Висота горизонтального скролбару */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #404e41; /* Колір самого скролбару */
+  border-radius: 6px; /* Заокруглені кути */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #404e42; /* Темніше індиго при наведенні */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Колір фону скролбару */
+  border-radius: 6px; /* Заокруглені кути */
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #f1f1f1; /* Колір внутрішньої частини треку */
+}
+
+@media (max-width: 768px) {
+  .container {
+    min-width: 300px;
+    width: 90%;
+  }
+}
+
+/* Загальні стилі для бургер-меню */
+.burger-menu {
+  display: none; /* Ховати бургер-меню на десктопах */
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 999; /* Вищий z-index, щоб бургер-меню було зверху */
+}
+
+.burger-line {
+  width: 30px;
+  height: 4px;
+  background-color: #333;
+  border-radius: 5px;
+}
+
+/* Стилі для меню на мобільних пристроях */
+@media (max-width: 768px) {
+  #nav-menu {
+    /* Тепер звертаємось до id */
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 80px;
+    right: 10px;
+    background-color: #fff;
+    color: #333;
+    width: 200px;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 998; /* Зробити menu менше, щоб воно не перекривало бургер */
+  }
+
+  /* Стилі для мобільного меню при відкритті */
+  #nav-menu.active {
+    display: flex; /* Переключаємо на відображення */
+    flex-direction: column; /* Розташовуємо елементи вертикально */
+  }
+
+  /* Показати бургер-меню на мобільних пристроях */
+  .burger-menu {
+    display: flex;
+  }
+}
+
+/* footer */
+.container-footer {
+  display: flex;
+  justify-content: space-between;
+}
+.policy-menu nav {
+  display: flex;
+  gap: 20px;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+video {
+  object-fit: cover; /* Забезпечує, що відео заповнює весь фон */
+  width: 100%;
+  height: 100%;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Затемнення */
+
+  z-index: 2;
+}
+
+.container {
+  position: relative;
+  z-index: 3; /* Щоб кнопки були поверх відео */
+}
+
+/* hero-container */
+.hero-container {
+  margin: 100px 0;
+  max-width: 700px;
+  padding: 70px 0;
+  background-color: #404e41;
+  border-radius: 20px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  text-align: center;
+  box-shadow: 0 0 20px 10px #404e41; /* Початкова світна тінь */
+  animation: glowing 1.5s infinite alternate; /* Анімація для світіння */
+}
+
+/* Анімація для світіння */
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 20px 10px rgba(64, 78, 65, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 40px 20px rgba(64, 78, 65, 1);
+  }
+  100% {
+    box-shadow: 0 0 20px 10px rgba(64, 78, 65, 0.6);
+  }
+}
+
+.hero .container {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-button {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.hero-button a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border: solid 1px beige;
+  padding: 10px;
+  border-radius: 50px;
+  width: 150px;
+}
+
+/* about-container */
+.about-container {
+  display: flex;
+  gap: 50px;
+  padding: 100px 0;
+}
+
+.about-deck {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.about-frames {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-frame {
+  background-color: beige;
+  padding: 20px;
+  border-radius: 20px;
+  color: #404e41;
+}
+.color {
+  color: #ffbf00;
+  font-size: 30px;
+}
+
+.about-img img {
+  border-radius: 20px;
+  opacity: 0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeInRight 1s 0.5s forwards;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Анімація для плавного руху тексту зліва */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Анімація для появи картинки з правого боку */
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Основний стиль для секції */
+#features {
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+.features-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.features-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 30px;
+}
+
+.features-item {
+  display: flex;
+  flex-direction: column;
+  background-color: beige;
+  color: #404e41;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 1s forwards; /* Анімація */
+}
+
+.features-item i {
+  font-size: 30px;
+  color: #404e41;
+  margin-bottom: 15px;
+}
+
+/* Анімація для елементів */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Анімація для кожного елемента із затримкою */
+.features-item:nth-child(1) {
+  animation-delay: 0.3s;
+}
+.features-item:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.features-item:nth-child(3) {
+  animation-delay: 0.9s;
+}
+.features-item:nth-child(4) {
+  animation-delay: 1.2s;
+}
+.features-item:nth-child(5) {
+  animation-delay: 1.5s;
+}
+.features-item:nth-child(6) {
+  animation-delay: 1.8s;
+}
+
+/* Стиль для тексту */
+.features-item p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Стиль для контейнера */
+.features-items {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Секція для відгуків */
+.reviews {
+  padding: 60px 0;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.reviews h2 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.reviews-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.review-item {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.review-item:hover {
+  transform: scale(1.05); /* Легка анімація збільшення при наведенні */
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.review-user-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.review-user-info {
+  text-align: left;
+}
+
+.review-user-info h4 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.review-stars {
+  color: #ffcc00;
+  font-size: 18px;
+}
+
+.review-text {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin-top: 15px;
+}
+
+/* Стиль для іконок зірок */
+.fas,
+.far {
+  margin-right: 2px;
+}
+.pay-video {
+  position: relative;
+}
+
+.pay-video img {
+  border-radius: 20px;
+  width: 400px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.pay-video:hover img {
+  transform: scale(1.05); /* Легка анімація при наведенні на картинку */
+}
+
+.video-overlay {
+  position: relative;
+  display: inline-block;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.play-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.play-button i {
+  color: white;
+  pointer-events: none;
+}
+
+.pay-container {
+  padding: 50px 0;
+  display: flex;
+  gap: 100px;
+}
+
+.pay-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.btn {
+  display: flex;
+  justify-content: start;
+}
+
+.footer .container {
+  border-top: solid 1px #9a9a9a;
+}
+@media (max-width: 768px) {
+  .hero-container {
+    margin-top: 150px;
+    min-width: 300px;
+    width: 60%;
+  }
+  h1 {
+    font-size: 25px;
+  }
+  .hero-button a {
+    gap: 5px;
+    font-size: 16px;
+  }
+
+  .about-container {
+    flex-direction: column;
+    padding-bottom: 20px;
+  }
+  .about-img img {
+    min-width: 300px;
+    width: 100%;
+  }
+
+  .pay-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .pay-video img {
+    min-width: 300px;
+    width: 100%;
+  }
+
+  .container-footer {
+    flex-direction: column;
+  }
+
+  .policy-menu nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .container-footer {
+    text-align: center;
+  }
+
+  .container-footer p {
+    font-size: 14px;
+  }
+}
